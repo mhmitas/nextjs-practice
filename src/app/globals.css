@@ -29,6 +29,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    --primaryShadow: hsl(229, 96%, 78%);
   }
 
   [data-theme="dark"] {
@@ -56,6 +57,7 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --primaryShadow: hsl(0, 0%, 36%);
   }
 }
 
@@ -71,4 +73,14 @@
 
 .my-container {
   @apply max-w-screen-2xl mx-auto px-6 pt-4
+}
+
+.my-btn {
+  @apply bg-primary hover:bg-primary/90 text-primary-foreground px-3 py-1 rounded font-semibold;
+  box-shadow: 0px 3px var(--primaryShadow);
+}
+
+.my-btn:active {
+  box-shadow: 0 0;
+  transform: translateY(3px);
 }

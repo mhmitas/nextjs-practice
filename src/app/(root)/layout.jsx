@@ -3,9 +3,9 @@ import React from 'react';
 
 const layout = ({ children }) => {
     return (
-        <section className='min-h-screen'>
+        <section className='min-h-screen flex flex-col'>
             <Navbar />
-            {children}
+            <div className='flex-1'>{children}</div>
         </section>
     );
 };

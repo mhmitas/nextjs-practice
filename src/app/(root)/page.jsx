@@ -3,7 +3,7 @@ export default function Home() {
 
     return (
         <section className="my-container text-text">
-            Home
+            <button className="my-btn">Home</button>
         </section>
     );
 }

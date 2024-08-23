@@ -5,7 +5,12 @@ import { AiOutlineMenu } from "react-icons/ai";
 import Link from "next/link";
 import { ModeToggle } from "./ThemeController";
 
-
+const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Contact", path: "/contact" },
+]
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -18,18 +23,9 @@ function Navbar() {
                         <h1 className="text-white text-2xl font-bold" >MyWebsite</h1>
                     </Link>
                     <div className="hidden md:flex md:items-center">
-                        <a href="#" className="text-white hover:bg-blue-700 hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium">
-                            Home
-                        </a>
-                        <a href="#" className="text-white hover:bg-blue-700 hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium">
-                            About
-                        </a>
-                        <a href="#" className="text-white hover:bg-blue-700 hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium">
-                            Services
-                        </a>
-                        <a href="#" className="text-white hover:bg-blue-700 hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium">
-                            Contact
-                        </a>
+                        {navLinks.map(navlink => <Link key={navlink.path} href={navlink.path} className="text-white hover:bg-blue-700 hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium">
+                            {navlink.name}
+                        </Link>)}
                         <ModeToggle />
                     </div>
                     <div className="flex md:hidden">
@@ -45,18 +41,9 @@ function Navbar() {
 
             <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="#" className="block text-white hover:bg-blue-700 hover:text-gray-200 px-3 py-2 rounded-md text-base font-medium">
-                        Home
-                    </a>
-                    <a href="#" className="block text-white hover:bg-blue-700 hover:text-gray-200 px-3 py-2 rounded-md text-base font-medium">
-                        About
-                    </a>
-                    <a href="#" className="block text-white hover:bg-blue-700 hover:text-gray-200 px-3 py-2 rounded-md text-base font-medium">
-                        Services
-                    </a>
-                    <a href="#" className="block text-white hover:bg-blue-700 hover:text-gray-200 px-3 py-2 rounded-md text-base font-medium">
-                        Contact
-                    </a>
+                    {navLinks.map(navlink => <Link key={navlink.path} href={navlink.path} className="block text-white hover:bg-blue-700 hover:text-gray-200 px-3 py-2 rounded-md text-base font-medium">
+                        {navlink.name}
+                    </Link>)}
                     <div className="block text-white  px-3 py-2 rounded-md text-base font-medium">
                         <ModeToggle />
                     </div>
