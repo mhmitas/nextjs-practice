@@ -84,3 +84,7 @@
   box-shadow: 0 0;
   transform: translateY(3px);
 }
+
+.title-1 {
+  @apply text-3xl font-bold text-center
+}
