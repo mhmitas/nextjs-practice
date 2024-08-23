@@ -7,8 +7,10 @@ import { ModeToggle } from "./ThemeController";
 
 const navLinks = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
+    { name: "Products", path: "/products" },
     { name: "Services", path: "/services" },
+    { name: "Dashboard", path: "/dashboard" },
+    { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
 ]
 
