@@ -46,7 +46,12 @@ function Navbar() {
 
             <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    {navLinks.map(navlink => <Link key={navlink.path} href={navlink.path} className={`block text-white hover:bg-blue-700 hover:text-gray-200 px-3 py-2 rounded-md text-base font-medium ${pathname === navlink.path && 'bg-blue-700 text-gray-200'}`}>
+                    {navLinks.map(navlink => <Link
+                        key={navlink.path}
+                        href={navlink.path}
+                        className={`block text-white hover:bg-blue-700 hover:text-gray-200 px-3 py-2 rounded-md text-base font-medium ${pathname === navlink.path && 'bg-blue-700 text-gray-200'}`}
+                        onClick={() => setIsOpen(false)}
+                    >
                         {navlink.name}
                     </Link>)}
                     <div className="block text-white  px-3 py-2 rounded-md text-base font-medium">
