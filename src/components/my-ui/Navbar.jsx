@@ -4,18 +4,21 @@ import { IoCloseOutline } from "react-icons/io5";
 import { AiOutlineMenu } from "react-icons/ai";
 import Link from "next/link";
 import { ModeToggle } from "./ThemeController";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
     { name: "Home", path: "/" },
     { name: "Products", path: "/products" },
     { name: "Services", path: "/services" },
-    { name: "Dashboard", path: "/dashboard" },
+    // { name: "Dashboard", path: "/dashboard" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
 ]
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const pathname = usePathname();
+
 
     return (
         <nav className="bg-gradient-to-r from-blue-500 to-teal-500 shadow-lg">
@@ -25,7 +28,7 @@ function Navbar() {
                         <h1 className="text-white text-2xl font-bold" >MyWebsite</h1>
                     </Link>
                     <div className="hidden md:flex md:items-center">
-                        {navLinks.map(navlink => <Link key={navlink.path} href={navlink.path} className="text-white hover:bg-blue-700 hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium">
+                        {navLinks.map(navlink => <Link key={navlink.path} href={navlink.path} className={`text-white hover:bg-blue-700 hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium ${pathname === navlink.path && 'bg-blue-700 text-gray-200'}`}>
                             {navlink.name}
                         </Link>)}
                         <ModeToggle />
@@ -43,7 +46,7 @@ function Navbar() {
 
             <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    {navLinks.map(navlink => <Link key={navlink.path} href={navlink.path} className="block text-white hover:bg-blue-700 hover:text-gray-200 px-3 py-2 rounded-md text-base font-medium">
+                    {navLinks.map(navlink => <Link key={navlink.path} href={navlink.path} className={`block text-white hover:bg-blue-700 hover:text-gray-200 px-3 py-2 rounded-md text-base font-medium ${pathname === navlink.path && 'bg-blue-700 text-gray-200'}`}>
                         {navlink.name}
                     </Link>)}
                     <div className="block text-white  px-3 py-2 rounded-md text-base font-medium">
